@@ -1,0 +1,62 @@
+FUNCTION:
+
+1. You can store function in a variable.
+2. You can have a function return a function.
+3. You can have a function take in a function as an argument.  
+There three properties make functions in javascript first class functions.
+
+
+PASSING FUNCTION AS A ARGUMENT TO OTHER functions
+function Rectangle (length, breadth, color) {
+    this.length = length;
+    this.breadth = breadth;
+    this.color = color;
+    this.area: function() {
+        return this.legth * this.breadth;
+    }
+}
+compare(rectangle1, rectangle2, compareRectangleByArea);
+
+function compare(rectangle1, rectangle2, conpareRectabgle) {
+    return compareRectangle(rectangle1, rectangle2);
+}
+
+function compareRectangleByArea(rectangle1, rectangle2) {
+    return Math.sign(rectangle1.area() - rectangle2.area());
+}
+
+STRINGS AND NUMBERS - BUT NOT OBJECTS - ARE 'PASSED-BY-VALUE' TO FUNCTIONS:
+1. In other words, A copy is made of string or number variables.
+2. And the function works with the copy - not the original.
+3. Even if function modifies the variable, the original is unchanged.
+
+function passByValue() {
+    var x = 10;
+    var y = 'test';
+    console.log(x, y);   // 10, test
+    modify(x, y);
+    console.log(x, y);   // 10, test
+}
+
+function modify(number, string) {
+    console.log(number, string); // 10, test
+    number = number + 10;
+    string = 'Test1';
+    console.log(number, string); // 20, Test1
+}
+
+
+OBJECTS AND ARRAYS ARE 'PASSED-BY-REFERENCE' TO FUNCTION:
+1. Object and arrays - unlike numbers or strings- are passed in as is to functions
+2. So function works with original - not a copy.
+3. If function modifies the variable the original is indeed chnaged.
+function modify(rectangle, weekDays) {
+    rectangle.length = rectangle.length * 2;
+    weekDays.push('Manic Mondays');
+}
+                BUT
+4. If function reassigns the variable, The original is not changed.
+function reassign(rectangle, weekDays) {
+    rectangle = new Rectangle(5, 5, 'Red');
+    weekDays = ['Sat', 'Sun'];
+}

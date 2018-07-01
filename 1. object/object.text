@@ -1,0 +1,161 @@
+OBJECT:
+An object is a set of key value pair, where the values can also be functions.
+
+PROPERTY:
+Each key value pair is called a property of the object.
+
+
+FIRST CLASS functions
+1. Like Number and string can be assign to variable
+2. They can be return as returned value from function,
+3. They can be passed in as an argument to a function
+
+1. You can store function in a variable.
+2. You can have a function return a function.
+3. You can have a function take in a function as an argument.  
+There three properties make functions in javascript first class functions.
+
+
+CREATE OBJECT USING JSON:
+JSON - Javascript Object Notation.
+JSON is used to transfer information from one place to another. json is really useful for data interchange.
+var rectangle = {
+    length: 5.0,
+    breadth: 3.5,
+    color: 'RED'
+};
+The key value pair is separated by COLON(:).
+Curly braces defines the limit of the Object.
+Each property of an object can be accessed using DOT(.)
+
+
+OBJECT CONSTRUCTOR:(Another way of creating object)
+1. An OBJECT CONSTRUCTOR is a function that creates object. 
+2. Sometimes we need a "blueprint" for creating many objects of the same "type".
+The way to create an "object type", is to use an object constructor function. 
+3. Objects of the same type are created by calling the constructor function with the new keyword:
+4. Object constructor does not have return statement.
+5. An Object Constructor acts like a blueprint from which objects are created.
+6. Capitalize name of the Object constructor.
+
+Writing an object constructor:
+
+function Rectangle (length, breadth, color) {
+    this.length = length;
+    this.breadth = breadth;
+    this.color = color;
+}
+
+Using and obejct constructor.
+
+var rectangle = new Rectangle(3.3, 2.5, 'Green');
+
+
+ADDING OR REMOVING PROPERTIES TO OBJECT DYNAMICALLY: USING JSON 
+function Rectangle (length, breadth, color) {
+    this.length = length;
+    this.breadth = breadth;
+    this.color = color;
+}
+
+var rectangle = new Rectangle(3.3, 2.5, 'Green');
+
+new Keyword:
+behind the scene Javascript interpreter creates and empty object (var this = {}), And pass is
+to the constructor function as this keyword
+
+syntax 1:
+rectangle['outline'] = 'Black';
+Allows you to specify the name of the proprty in a variable
+var propertyName = 'outline';
+rectangle[propertyName] = 'black';
+
+delete rectangle['outline']
+
+
+syntax 2:
+rectangle.outline = 'Black';
+delete rectangle.outline
+
+OBJECT PROPERTY CAN BE FUNCTION TOO in OBJECT CRAETED IN JSON:
+
+var rectangle = {
+    length: 5.0,
+    breadth: 3.5,
+    color: 'RED',
+    area: function() {
+        return this.legth * this.breadth;
+    }
+};
+
+rectangle.area(); OUTPUT area = 17.5
+
+rectangle.area OR reactangle['area'] OUTPUT function() {  return this.length *  this.breadth };
+
+
+OBJECT CONSTRUCTOR CAN CONTAIN PROPERTY FUNCTION TOO!
+function Rectangle (length, breadth, color) {
+    this.length = length;
+    this.breadth = breadth;
+    this.color = color;
+    this.area: function() {
+        return this.legth * this.breadth;
+    }
+}
+
+can be accessed in similar way in which json object is accessed.
+
+ITERATING OVER ALL THE PROPERTIES IN AN OBJECT:
+for (var propertyName in rectangle) {
+    var propertyValue = rectangle[propertyName]; -Advantage over accessing properties over DOT operator
+    console.log(propertyName : propertyValue);  
+}
+This will give us the values of all Non-function properties. for function properties , it will give us
+underlying object.
+
+BAD THINGS HAPPEN IF YOU CALL A CONSTRUCTOR WITHOUT new Keyword
+1. The 'this' pointer will not be passed in at all, and will default to the browser window object.
+2. And any attempt to use in the constructor will throw an error.
+
+
+UNDERSTANDING typeof 
+javascript has a helpful operator called typeof that helps you check the type of an object.
+console.log(typeof '123'); string
+console.log(typeof 123); number
+console.log(typeof undefined); special type - undefined
+console.log(typeof []); object
+console.log(typeof true); boolean
+
+UNDERSTANDING instanceof 
+1. To tell if an object was build using a particular constructor , use instanceof
+2. The instanceof operator will return true or false.
+function Rectangle (length, breadth, color) {
+    this.length = length;
+    this.breadth = breadth;
+    this.color = color;
+    this.area: function() {
+        return this.legth * this.breadth;
+    }
+}
+var rectangle = new Rectangle(2.2, 3.5, 'red');
+var rectangle2 = {};
+
+rectangle instanceof Rectangle; OUTPUT true
+rectangle2 instanceof Rectangle; OUTPUT false
+
+
+PUBLIC PRIVATE AND PROTECTED
+
+Public properties are accessible to all code, inside and outside the object.
+Private properties are accessible only within the object itself.
+Protected properties are accessible only to object that inherit from an object.
+
+function Rectangle (length, breadth, color) {
+    var privateVar = 'black' ---- Private varibale not accessible outside 
+    this.length = length;
+    this.breadth = breadth;
+    this.color = privatevar;
+    this.area: function() {
+        return this.legth * this.breadth;
+    }
+}

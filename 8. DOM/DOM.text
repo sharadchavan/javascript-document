@@ -1,0 +1,5 @@
+DOM: DOCUMET OBJECT MODEL
+
+1. The DOM is way of accessing any part of the HTML of a webpage as a javascript object.
+2. The entire HTML Document is treated as one big object called 'document'.
+3. This 'document' object is available, By default, inside the script element (where all javascript code resides).

@@ -1,0 +1,48 @@
+QUIRKS:
+
+SPECIAL VALUES:
+udefined: Indiccate that value does not exist.
+null: A special value that does exists, but is null.
+NaN: Not a Number (But still a number).
+Infinity: A special value, bigger than any number.
+
+
+UNTERSTANDING undefined:
+1. Variable has been declared, but not initialized, its value is undefined.
+var someVariable;  //undefined
+2. A function has no return value, but you attempt to access it . Its value is undefined.
+function getRectangleArea(length, breadth) {
+    var area = length * breadth;
+}
+var someVariable = getRectangleArea(5, 5); // undefined
+3. A variable does not exist, And you attempt to use it value, It will be undefined.
+console.log(test);  //test undefined
+4. A function does not exist, And you attemt to call it - An error result - Not undefined
+getRectangleShape(); //Uncaught RefernceError: getRectangleShape is not defined. 
+5. You attempt to access a non-existent property of an object - undefined.(Or even if property did exist , but it was deleted)
+console.log(rectangle.redius); //undefined
+6. You can call typeof operator on something that is undefined and output will be undefined.
+console.log(typeof unInitialisedVariable);  //undefined.
+
+
+UNDERSTANDING null:
+-null is special value, specifically assigned to a variable.
+var code = document.getElementById('code');
+-If there is no HTML element with Id = 'code' in HTML webpage, then document.getElementById returns null;
+1. You call the typeof operator on something that is null, You get - object.
+var nullVariable = null;
+console.log(typeof nullVariable); //object
+2. You compare undefined And null you get - true.
+
+
+UNDERSTANDING NaN:(NOT A NUMBER)
+IsNaN(x);
+
+console.log(IsNaN(123)); //false
+console.log(IsNaN('123')); //false -String that is converted in the number that's why is not NaN
+console.log(IsNaN(Math.sqrt(-1))); //true  
+console.log(IsNaN('Hello)); //true
+console.log(IsNaN(123)); //false
+console.log(IsNaN(123)); //false
+console.log(IsNaN(123)); //false
+console.log(IsNaN(123)); //false
