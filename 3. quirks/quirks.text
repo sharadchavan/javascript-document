@@ -42,7 +42,74 @@ console.log(IsNaN(123)); //false
 console.log(IsNaN('123')); //false -String that is converted in the number that's why is not NaN
 console.log(IsNaN(Math.sqrt(-1))); //true  
 console.log(IsNaN('Hello)); //true
-console.log(IsNaN(123)); //false
-console.log(IsNaN(123)); //false
-console.log(IsNaN(123)); //false
-console.log(IsNaN(123)); //false
+console.log(IsNaN('')); //false // empty string is converted in to Zero(0);
+console.log(IsNaN(undefined)); //true
+console.log(IsNaN(null)); //false // null is converted to ZERO(0).
+console.log(IsNaN(0/0)); //true
+console.log(IsNaN('NaN')); //true
+
+typeof NaN;  //number
+
+
+
+STRING AND NUMBER 
+
+console.log(5 + '10'); //510
+console.log( 5 * '10'); //50
+console.log( '10' / '5'); //2
+console.log( '10' - '5');  //5
+
+javascript tries to convert number to string in case of addition.
+
+
+STRANGE COMPARISON 
+
+UNDERSTANDING == AND ===
+= assignment operator 
+== is know as the equality operator
+1. compare value. And will perform converstions, such as from number to string
+=== is know as the strict equality operator.
+1. compare types and value. And will not perform conversion.
+
+For objects there is no difference between these operators(== && ===) - Only for strings and numbers.
+
+=== compare string and number Always false.
+== compare string and number May be true e.g 123 == "123" 
+
+null == undefined //true
+null === undefined // false
+
+"" == 0   // true
+"" === 0  // false
+
+TRUTHY AND FALSEY
+
+TRUTY : Anything that can be converted by javascript To True
+e.g. {}, [], and all the positive and negative numbers.
+
+FALSEY:
+e.g. Null, undefined, "", 0, false, NaN
+
+perform If Statement on following Statement and get TRUTHY and FALSEY result
+
+if(result 0) // FALSEY
+if(result -1) // TRUTHY
+if(result 5) //TRUTHY
+if(result null) // FALSEY
+if(result false) // FALSEY
+if(result undefined) //FALSEY
+if(result 'Hello') //TRUTHY
+if(result '') //FALSEY
+if(result []) //TRUTHY
+if(result 'NaN') // TRUTHY
+if(result NaN) //FALSEY
+if(result {}) // TRUTHY
+
+
+
+STRING
+1. In javascript strings are objects, but they behave like primitive types.
+2. They have a host of helpful properties that we use all the time.
+3. For instance, string seems to be passed by value - changing a string inside a function does not change 
+its value
+4. Strings are object but they are not passed by reference because strings are IMMUTABLE OBJECT

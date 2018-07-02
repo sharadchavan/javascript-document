@@ -60,3 +60,72 @@ function reassign(rectangle, weekDays) {
     rectangle = new Rectangle(5, 5, 'Red');
     weekDays = ['Sat', 'Sun'];
 }
+
+
+
+DECLARED FUNCTION AND FUNCTION LITERALS
+
+DECLARED FUNCTION: 
+Are just regular functions created like this .
+
+function declaredFunction () {
+    console.log('this a declared function);
+}
+
+FUNCTION LITERALS:
+
+var someFunction = function () {  ---Anonymous Function
+    console.log('function literal)
+}
+
+The right hand side part which function and its body is called function expression.
+
+
+DECLARED FUNCTION VS FUNCTION LITERALS:
+
+1. Declared functions all come in existence before any function literal come into existsence.
+2. The javascript interpreter process all declared functions as the page is loading.
+3. Function literals only come into existence when the corresponding function expression is evaluated.
+4. Function expressions can only be evaluated when javascript code runs.
+5. All declared functions, No matter where they appear in the code , are hoisted to top.
+6. Function listerals can be used only after being evaluated.
+
+HOISTING IN ACTION:
+
+function functionExample() {
+    declaredFunction();      --- //OUTPUT 'declared Function'
+    try {
+        someFunction();      //OUTPUT undefined
+    }catch(err) {
+        console.log(err);
+    }
+    var someFunction = function () {
+        console.log('functional Literal');
+    }
+
+    someFunction();               //OUTPUT function literal
+} 
+
+function declaredFunction() {
+    console.log('declared function');
+}
+
+7.function literal use anonymous function but not in all case , function literal can be written like this.
+
+var nameFunction = function foo(x) {
+    console.log(x);
+}
+
+nameFunction(1) //OUTPUT = 1;
+foo(1);  //OUTPUT = Reference error function foo is not defined.
+
+Whats the point of having a name if you can't use it then?
+ANSWER: Recursion.
+You can use the name of the function expression to refer to itself inside the body of the function.
+
+var namedFunction = function foo(x) {
+    console.log('function literal with named function');
+    if(x == 1) {
+        foo(2);
+    }
+}
