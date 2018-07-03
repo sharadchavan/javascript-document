@@ -1,0 +1,8 @@
+CLOSERS: NESTED FUNCTION + VARIABLE LOCAL TO THE OUTER SCOPE(REFERENCING ENVIRONMENT)
+1.The nested function can access the referencing environment - even though those variable are
+outside the scope.
+2. The nested function carries around that referencing environment even after the scope has 
+"gone away".
+
+Now there could be multiple nested functions in the referencing environment. They will all share the same 
+variables. (Not Copies)

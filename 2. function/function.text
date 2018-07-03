@@ -129,3 +129,72 @@ var namedFunction = function foo(x) {
         foo(2);
     }
 }
+
+
+NESTED FUNCTION: AS FUNTION LITERALS.
+
+function Rectangle(l, b) {
+    this.length = l;
+    this.breadth = b;
+}
+
+window.onload = function() {
+    
+    var rectangle1 = new Reactangle(3, 4);
+    var rectangle2 = new Reactangle(4, 5);
+    var rectangle3 = new Reactangle(5, 6);
+
+    const rectArray = [rectangle1, rectangle2, rectangle3];
+
+    const printStuffAboutRectangleArray = function (rectangleArray) {
+        const getArea = function(rectangle) {
+            return rectangle.length * rectangle.breadth;
+        } 
+
+        for(var i =0; i< reactangleArray.length; i++) {
+            var r = reactangleArray[i];
+            getArea(r);
+        }
+    }
+    printStuffAboutRectangleArray(rectArray);
+    getArea(rectangle1); //ReferenceError getArea is not defined.
+}
+
+1. Thses are function literals and so are only available after the function expression is evaluated.
+2. The inner nested function is local to the outer nested function and cant be used outside it.
+
+
+NESTED FUNTION: AS DECLARED FUNCTION 
+
+
+
+function Rectangle(l, b) {
+    this.length = l;
+    this.breadth = b;
+}
+
+window.onload = function() {
+    
+    var rectangle1 = new Reactangle(3, 4);
+    var rectangle2 = new Reactangle(4, 5);
+    var rectangle3 = new Reactangle(5, 6);
+
+    const rectArray = [rectangle1, rectangle2, rectangle3];
+    
+    printStuffAboutRectangleArray(rectArray);
+    getArea(rectangle1); //ReferenceError getArea is not defined.
+
+    function printStuffAboutRectangleArray(rectangleArray) {
+        function getArea (rectangle) {
+            return rectangle.length * rectangle.breadth;
+        } 
+
+        for(var i =0; i< reactangleArray.length; i++) {
+            var r = reactangleArray[i];
+            getArea(r);
+        }
+    }
+ 
+}
+1. These are declared functions and so are available everywhere in code.
+2. The inner nested function is local to the outer nested function and cant be used outside it.
