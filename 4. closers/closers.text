@@ -41,5 +41,30 @@ window.onload = function() {
 
 }
 
-REFERENCING ENVIRONMENT 
+
+
+1. The "No" Button will keep track of the no votes without using closeres.
+
+var noVotes = 0;
+
+window.onload = function() {
+    var yesButton = document.getElementById('yesButton');
+    var noButton = document.getElementById('noButton');
+    var yesVote = 0;
+
+    noButton.onclick = countNoVotes;
+
+    yesButton.onclick = function() {
+        yesVotes++;
+    var yesVoteMessage = document.getElementById('yesVotes');
+    yesVotesMessage.innerHTML = `No Votes ${yesVotes}`
+
+    }
+}
+
+function countNoVotes() {
+    noVotes++;
+    var noVoteMessage = document.getElementById('noVotes');
+    noVoteMessage.innerHTML = `No Votes ${noVotes}`
+}
 
