@@ -1,0 +1,23 @@
+Angular Services:
+
+1. Service is special unit of code which can be used accross different controller.
+2. Service can be utilities or business logic units.
+-Business logic should be in service , it should not be the part of controller.
+-Controllers are ment to receive the data and provide the data to views.
+3. Service is a singleton.(means you will have only single instance of service accross your entire application)
+- Same instance is maintained throughout the life time of application.
+-Unlike services, controllers are created as they are needed and destroyed if they are not in use.
+-Controllers are dynamic in nature, how ever services are static in nature. Because once the instance of the service
+is created, same instance will living as part of memory.And same instnace will used throughout all the controller and 
+Angularjs application.
+-Controllers are dynamic in nature because once the controller is instantiated and then other view is loaded then that previous views
+controller will be destroyed. and new views controller will be instantiated.
+4. Services are loaded and instantiated lazily.
+5. We can have multiple services and used by multiple controllers.
+6. Services can work with other services.
+
+
+Services Types:
+1. Built-In services - Part of Angular Framework 
+Ex. $http, $log, $location etc.
+2. Custom services.

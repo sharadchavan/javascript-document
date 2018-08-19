@@ -1,0 +1,49 @@
+
+ANGULARJS:
+
+- A client side JS Framework
+- Developed and being maintained by Google.
+- Goals
+    - Separate DOM manipulation from application logic.
+    - Separate of concerns (using MVC like pattern)
+    - Make SPA development easier.
+    - Extensibility & Customization. 
+
+
+
+Angular Module:
+syntax: angular.module("sample", []);
+- second  parameter as [] array defines that we are creating new module, if second parameter is not there it means we are
+retrieving existing module which is already created.
+-It contains all the application logic 
+-One module can contain sevral component . And each component can communicate with server and work with server.
+
+Angular Application :
+<body ng-app="sample">
+-this attribute needs to be added under any of the html tag. So once the angular is loaded it searchesfor ng-app
+attribute in html page if it find that the it tries to execute angular code.
+-ng-app="sample" means we are directly attaching this angular application with sample module.
+
+{{ 1 + 2}} = it is called angular expressions. but it is nothing but javascript statements.
+
+
+
+High Level Overview - Angular process:
+1. Angularjs is included and expecuted in script tag.
+    -Then it starts the angularjs engine , then it will go through the entire mark up and try to find all relative components
+     try to parse them load them and execute them.
+2. Angular module is created.
+3. Finds the template.
+    -You might be having several block of html block in you application and those html block may have angular related 
+     component are called template.
+     'ng-*' attributes are called directives.
+4. Process Template
+    a. Compiles template. (for errors).
+    -Angularjs engine has something called as html compiler. That is the compiler get in picture when it finds the 
+    template in html page.
+    b. Load Template(instance) in memory.(memory means browser memory).
+    c. Transforms template with data
+        -data binding
+        -Evaluation of expressions.
+    Once all the processes are completed , their result with generate the DOM . and that gets passed to the browser.
+5. Renders to DOM tree(View).

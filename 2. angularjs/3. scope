@@ -1,0 +1,72 @@
+SCOPE IN ANGULARJS:
+
+
+var sample = angular.module("sample",[]);
+sample.controller("emp", function () {
+
+});
+-Here controller is defined not instantiated.
+
+
+<body ng-app="sample">
+    <div ng-controller="emp">
+    ..
+    ..
+    <div>
+</body>
+
+-Once the angular finds the ng-controller directive in mark up creates the logical block in browser and stores all the 
+data of the model.
+-That logical block sits in dom memory and it is directly attached to the ng-controller div.
+-It means that particular div has directly access to that logical block.
+and this logical block (context) is nothing but scope.
+-This scope is stored in memory but never shown to the user.
+
+-So how that logical block is created or scope. 
+-When you mention ng-controller="emp" in markup it creates new controller instance (along with scope)
+-So scope gets merged into controller instance.
+-Controller has direct access to the scope
+-DOM has direct access to scopre.
+-So scope is responsible for exchanging data between controller and view.
+
+
+SCOPE INHERITANCE:
+
+Consider following example:
+
+
+var sample = angular.module("sample",[]);
+sample.controller("emp", ["$scope", function ($scope) {
+        $scope.name = "John";
+});
+
+sample.controller("empDetails", ["$scope", function ($scope) {
+    $scope.salary= 4500;
+});
+-Here controller is defined not instantiated.
+
+
+<body ng-app="sample">
+    <div ng-controller="emp">
+        Hello <strong> {{ name }}</strong>
+        <div ng-controller = "empDetails">
+            Your salary is {{ salary }}.
+        </div>
+    <div>
+</body>
+
+-Once the angular engine encounters ng-controller in markup with "emp" , it creates its scope and instantiate that
+controller.
+-As we see in above code we have nested ng-controller in mark up , so it creates the nested scope inside scope. So parent
+attributes are available to the childe scope through the inheritance.
+-Once the scope is craeted it is directly associated with that DOM element which has ng-controller attribute in markup.
+
+
+
+ROOT SCOPE:
+
+-When you define ng-app in your markup, it creates a root scope in background.
+-Rootscope is available to all the child and their nested child as well ,which are their in markup.
+-When you modify the value of rootscope anywhere in any child or parent scope , it will be changed every where.
+-Actually rooscope is passByReference so when modify value , it will change th value everywhere.
+

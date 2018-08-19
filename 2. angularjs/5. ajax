@@ -1,0 +1,9 @@
+AJAX:
+
+-Communication between browser and server without full page response.
+-So it receives the partial page response through the service using network call.
+-User can still interact with UI, while the Communication happen behid the scene.
+-The AJAX response can be JSON or XML or data (primitive values) or html.
+-If the response is HTML, we inject/replace the existing Elements/DOM with that of the response.
+- If the response is JSON/XML/Data, we parse the response and place the data/Values in respective
+part of the HTML (including input element).

@@ -1,0 +1,10 @@
+PRIMITIVE TYPE: A type of data that represents a single value. i.e not an object.
+1. undefined
+2. null
+3. bbolean
+4. number
+5. string
+6. symbol -Used in ES6
+
+
+OPERATORS:

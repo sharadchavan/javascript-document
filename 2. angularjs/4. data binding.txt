@@ -1,0 +1,55 @@
+Data Binding:
+
+1. Establishing the connection between view and controller.
+2. Syncronizing data between view and controller and vice-versa.
+This is amde avaible though the angular data binding.
+
+One Way Data Binding:
+
+View                                                <---      <---     <--- Controller
+------------------------------------------------------------------------------
+Markup                                                                        Scope
+
+-Data Flows from SCope to View-
+-Scope data 
+    -Gets propogated to view
+    -Even after data propogated in view If scope is modified again data will be propogated in view.
+-View Data
+    -From view side no propogation happens back to the scope.
+-To achieve One Way Data Binding we use ng-bind or expression 
+
+
+Two Way Data Binding:
+
+View                                                <---      <---     <--- Controller
+------------------------------------------------------------------------------
+Markup --->       --->         --->                                            Scope
+
+
+-Data Flows from SCope to View and vice-versa.
+-Scope Data
+    -Gets propogated to view
+    -Even after data propogated in view If scope is modified again data will be propogated in view.
+-View Data
+    - view Data gets propogated to Scope.
+    -Even after data propogated in scope If view is modified again data will be propogated in scope.
+
+-Two Data Binding achieved through ng-model.
+
+
+One Time Data Binding:
+
+View                                 <----                                Controller
+------------------------------------------------------------------------------
+Markup                                                                      Scope
+
+
+-Data Flows from SCope to View.
+-Scope Data
+    -Gets propogated to view(Only once for the first time)
+    -Even after data propogated in view If scope is modified No data propogation will happen.
+-View Data
+    - view Data not propogated to Scope.
+    -Even after data propogated in scope If view is modified again data will be propogated in scope.
+
+-One Time Data Binding achieved through :: as a part of evaluation expression.

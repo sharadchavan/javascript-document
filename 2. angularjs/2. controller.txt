@@ -1,0 +1,54 @@
+CONTROLLERS:
+1. Controllers are javascript objects which contain application logic.
+ - Usually defined as part of angular module.
+ -You can create multiple controller in module.
+
+syntax :
+ const sample = angular.module("sample", []);
+ sample.controller("employee", function () {
+    this.name = "John";
+ });
+
+ 2. Controller allow us to send/receive data between DOM (view) and application logic.
+
+ 3. Usually attached to DOM element using 'ng-controller'(directive) attribute.
+ <body ng-app="sample">
+    <div ng-controller="employee as emp">
+        Hello {{ emp.name}}!
+    </div>
+ </body>
+
+ -So ng-controller from view is directly tightly coupled with controller from angular module.
+ -Consider every controller as class . so class needs to be instantiated. so here in view
+ employee as emp has been instantiated.
+
+ 4. Inother words, controller can directly provide the data to the view(One-way-data-binding).
+ -Also view can send data back to the controller is called two way data binding.
+
+ 5. In markup when angular finds ng-controller attribute it add ng-binding and ng-scope class to that div.
+
+
+
+ WRAPPING UP CONTROLLERS:
+
+ 1. Controllers are actually sending the information to the view in the form of Model. So view does not understand
+ the controller ,it understands the Model.
+ -Views strongly binds to the model and coontroller knows what kind of model it needs to generate.
+ 2. In order to get model which means all the data So data usually resides in database. But angularjs resides at client side
+ So from browser i wont be able to directly work with database because of huge security issue.
+ -In general modules are not responsible to work with databases.
+ -Controllers will be receiving the data or working with data through web services.
+ -So web services knows how to work with databases.
+ -Views will never come to the from where the data is coming(means web services and databases) it only works with controller model.
+
+
+                                        MODULE
+            |--------------------------    |    --------------------|
+            |                        CONTROLLERS (model)            |
+            |                                                       |
+            |                                                     VIEWS(data)
+        WEB SERVICES
+            |
+            |
+            |
+        DATABASE
