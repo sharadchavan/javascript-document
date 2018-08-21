@@ -68,3 +68,36 @@ function countNoVotes() {
     noVoteMessage.innerHTML = `No Votes ${noVotes}`
 }
 
+
+
+------------------------------------------------------------------------
+
+function greet(whatToSay) {
+    return function(name) {
+        console.log(`${whatToSay} ${name}`);
+    }
+}
+
+var sayHi = greet('Hi');
+sayHi('Tony');
+
+
+
+WEIRD BEHAVIOUR OF CLOSERES
+
+function buildFunctions() {
+    var arr = [];
+    for( var i = 0; i < 3; i++) {
+        arr.push(function() {
+            console.log(i);
+        });
+    }
+    return arr;
+
+}
+
+var fs = buildFunctions();
+fs[0]();  //OUTPUT 3
+fs[1]();  //OUTPUT 3
+fs[2]();  //OUTPUT 3
+
